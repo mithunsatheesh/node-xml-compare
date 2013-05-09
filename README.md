@@ -1,4 +1,4 @@
-xmlcompare
+node-xml-compare
 ===========
 
 xml compare is node.js package to compare two xml strings,
@@ -10,6 +10,13 @@ Description
 
 xml compare is built on top of sax-js. 
 [sax-js](https://github.com/isaacs/sax-js/).
+
+
+Install
+===========
+It can be intsalled via
+`npm install xml_compaew`
+
 
 
 Usage
