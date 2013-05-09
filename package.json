@@ -1,0 +1,16 @@
+{
+	"name": "xml_compare",
+	"description": "To compare two xml strings and highlight the differences",
+	"author": {
+		"name": "Mithun Satheesh."
+	},
+	"version": "0.1.0",
+	"main": "index.js",
+	"license": {
+		"type": "MIT"
+	},
+	"dependencies": {
+	"sax": ">=0.4.2",
+	"underscore": ">=1.4.4" 
+	}
+}
