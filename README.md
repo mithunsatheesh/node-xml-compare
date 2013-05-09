@@ -15,7 +15,7 @@ xml compare is built on top of sax-js.
 Install
 ===========
 It can be intsalled via
-`npm install xml_compaew`
+`npm install xml_compare`
 
 
 
