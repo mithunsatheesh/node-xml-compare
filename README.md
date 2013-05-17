@@ -16,7 +16,7 @@ Install
 ===========
 It can be installed via.
 
-`npm install xml_compare`
+`npm install node-xml-compare`
 
 
 
@@ -26,7 +26,7 @@ Usage
 To use this just pass the xml strings you want to compare into the xmlcompare variable.
 
 ```javascript
-var xmlcompare = require('xmlcompare');
+var xmlcompare = require('node-xml-compare');
 
 xml1 = "<sample><a>1</a><a>2</a><a>4</a><b>4</b></sample>";
 xml2 = "<sample><a>2</a><a>1</a><a>3</a><c>3</c></sample>";
