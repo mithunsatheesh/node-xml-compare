@@ -1,4 +1,4 @@
-#node-xml-compare
+#[node-xml-compare](http://mithunsatheesh.github.io/node-xml-compare)
 
 xml compare is a node.js package to compare two xml strings. 
 
