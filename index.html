@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Node-xml-compare by mithunsatheesh</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Node-xml-compare</h1>
+        <p>xml difference engine on node.js</p>
+
+        <p class="view"><a href="https://github.com/mithunsatheesh/node-xml-compare">View the Project on GitHub <small>mithunsatheesh/node-xml-compare</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mithunsatheesh/node-xml-compare/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mithunsatheesh/node-xml-compare/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mithunsatheesh/node-xml-compare">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>node-xml-compare</h1>
+
+<p>xml compare is a node.js package to compare two xml strings. </p>
+
+<h2>Description</h2>
+
+<p>xml compare is built on top of <a href="https://github.com/isaacs/sax-js/">sax-js</a>. It converts the input xml strings into json objects with the help of sax. Then It compares the json to calculate the difference between the parsed objects. The output is a json document with two attributes.</p>
+
+<ol>
+<li>
+<code>-</code> : html encoded form of first xml string in which the nodes which are not in second xml are highlighted.</li>
+<li>
+<code>+</code> : html encoded form of second xml string in which those additional nodes other than those in first are highlighted.</li>
+</ol><h2>Install</h2>
+
+<p>It can be installed via.</p>
+
+<p><code>npm install node-xml-compare</code></p>
+
+<h2>Usage</h2>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">xmlcompare</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-xml-compare'</span><span class="p">);</span>
+
+<span class="nx">xml1</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0"?&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;catalog&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;book id="bk101"&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;author&gt;Gambardella, Matthew&lt;/author&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;title&gt;XML Developers Guide&lt;/title&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;genre&gt;Computer&lt;/genre&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;price&gt;44.95&lt;/price&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;publish_date&gt;2000-10-01&lt;/publish_date&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;description&gt;An in-depth look at creating applications with XML.&lt;/description&gt;'</span><span class="p">;</span>
+<span class="nx">xml1</span> <span class="o">+=</span> <span class="s1">'&lt;/book&gt;&lt;/catalog&gt;'</span><span class="p">;</span>
+
+
+<span class="nx">xml2</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0"?&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;catalog&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;book id="bk101"&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;author&gt;Some one else&lt;/author&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;title&gt;XML Developers Guide&lt;/title&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;genre&gt;Computer&lt;/genre&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;price&gt;440.95&lt;/price&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;publish_date&gt;2000-10-01eee&lt;/publish_date&gt;'</span><span class="p">;</span>
+<span class="nx">xml2</span> <span class="o">+=</span> <span class="s1">'&lt;/book&gt;&lt;/catalog&gt;'</span><span class="p">;</span>
+
+<span class="nx">xmlcompare</span><span class="p">(</span><span class="nx">xml1</span><span class="p">,</span> <span class="nx">xml2</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+
+
+    <span class="c1">//render result[-] to code blocks in html page to show the xml1 nodes that are not in xml2</span>
+    <span class="c1">//render result[+] to code blocks in html page to show the xml2 nodes that are not in xml1</span>
+
+
+<span class="p">});</span>
+
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mithunsatheesh">mithunsatheesh</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
