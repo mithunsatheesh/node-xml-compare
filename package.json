@@ -1,5 +1,5 @@
 {
-	"name": "xml_compare",
+	"name": "node-xml-compare",
 	"description": "To compare two xml strings and highlight the differences",
 	"author": {
 		"name": "Mithun Satheesh."
